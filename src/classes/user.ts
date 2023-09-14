@@ -43,7 +43,7 @@ class UserAPI {
 
 	}
 
-	public async login(email: string, password: string) {
+	public async login(email: string, password: string, token: string) {
 
 	}
 
@@ -52,7 +52,7 @@ class UserAPI {
 	}
 
 	public async register(username: string, email: string, password: string) {
-		
+
 	}
 }
 

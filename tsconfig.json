@@ -10,7 +10,8 @@
 		"@/events/*": ["./src/events/*"],
 		"@/interactions/*": ["./src/interactions/*"],
 		"@/lib/*": ["./src/lib/*"],
-		"@/utils/*": ["./src/utils/*"]
+		"@/utils/*": ["./src/utils/*"],
+		"@/classes/*": ["./src/classes/*"]
 	  },
 	  "resolveJsonModule": true,
 	  "sourceMap": true,

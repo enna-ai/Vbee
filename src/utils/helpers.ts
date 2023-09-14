@@ -1,4 +1,6 @@
 import type { AutocompleteInteraction, CommandInteraction } from "discord.js";
+import UserAPI from "@/classes/user.js";
+import key from "keytar";
 
 export const formatArray = (input: string[], options: { style?: Intl.ListFormatStyle; type?: Intl.ListFormatType } = {}): string => {
 	const { style = "short", type = "conjunction" } = options;
@@ -28,4 +30,34 @@ export const resolveCommandName = (interaction: CommandInteraction<"cached" | "r
 	].join(" ");
 
 	return command;
+};
+
+export const isAuthenticated = async () => {
+	const token = await key.getPassword("tasks", "token");
+	return Boolean(token);
+};
+
+export const handleLogin = async () => {
+	const token = await key.getPassword("tasks", "token");
+	const data = await UserAPI.getUserProfile(token);
+	return data;
+};
+
+export const handleLogout = async () => {
+	try {
+		await UserAPI.logout();
+		await key.deletePassword("tasks", "token");
+	} catch (error) {
+		console.error(`Error trying to logout: ${error}`);
+	}
+};
+
+export const handleRegister = async (username: string, email: string, password: string) => {
+	const response = await UserAPI.register(username, email, password);
+	return response;
+};
+
+export const getProfile = async (token: string) => {
+	const response = await UserAPI.getUserProfile(token);
+	return response;
 };
