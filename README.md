@@ -10,7 +10,7 @@
 
 ## Commands
 - `/login` - login using your vbusy credentials
-_user account credentials are encrypted by the backend API, and "ephemeral" is enabled to protect your credentials._
+  - _user account credentials are encrypted by the backend API, and "ephemeral" is enabled to protect your credentials._
 - `/logout` - logout of your vbusy account
 - `/register` - register for an account with vbusy
 - `/task delete` - delete one of your tasks
